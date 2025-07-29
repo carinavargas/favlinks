@@ -1,29 +1,25 @@
-function Table(){
+function Table(props){
 
-let rows = [
-    {name : "Cam Test", url : "https://www.test.com"},
-    {name : "Cam Test 2", url : "https://www.test2.com"},
-    {name : "Cam Test 3", url : "https://www.test3.com"},
-].map((data)=>{
+let rows = props.links.map((data, index)=>{
   return(
-    <tr>
-      <td>[data.name]</td>
-      <td>[data.url]</td>
-
+    <tr key={index}>
+      <td>{data.name}</td>
+      <td>{data.URL}</td>
     </tr>
   )
 })
 
    
     return (
+      //return some JSX
       <table>
-        <thread>
+        <thead>
           <tr>
           <th>Link Name</th>
           <th>Link URL</th>
       
         </tr>
-        </thread>
+        </thead>
         <tbody>
        {rows}
       </tbody>

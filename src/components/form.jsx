@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-function Form(){
+function Form(props){
 
  // function handleSubmit(event){
   //  alert("submitted");  
@@ -9,7 +9,7 @@ function Form(){
  // }
 
 const [name, setName] = useState("");
-const [url, setUrl] = useState("");
+const [URL, setUrl] = useState("");
 
 
 
@@ -20,11 +20,12 @@ const [url, setUrl] = useState("");
     //console.log(name);
     //console.log(name, url);
 
-    if (name === "" || url === ""){
+    if (name === "" || URL === ""){
       alert("Name and URL are required");
     }
     else{
-      console.log(name, url);
+      console.log(name, URL);
+      props.onNewSubmit({name, URL})
 
       //send this to the table?
     }
@@ -42,18 +43,18 @@ const [url, setUrl] = useState("");
 
     return (  
     <form onSubmit={handleSubmit}>
-        <label for="linkName">Link Name</label>
+        <label form="linkName">Link Name</label>
       <input type="text" name="linkName" onChange={handleNameChange}/>
   
       <br/>
   
-      <label for="linkUrl">Link URL</label>
+      <label form="linkUrl">Link URL</label>
       <input type="text" name="linkUrl" onChange={handleUrlChange}/>
   
   
       <br/>
       <br/>
-      <input type="submit" disabled={name === "" || url === ""}/>
+      <input type="submit" disabled={name === "" || URL === ""}/>
       </form>
   
     )
